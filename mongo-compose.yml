@@ -3,13 +3,15 @@ kind: Pod
 metadata:
   name: mongo-db-pod
   labels:
-    app: mongo
+    app: mongo-db
 spec:
   containers:
     - name: mongo-container
-      image: mongo:latest
+      image: mongo
       ports:
         - containerPort: 27017
       env:
         - name: MONGO_INITDB_DATABASE
           value: TodoApp
+  nodeSelector:
+    env: database

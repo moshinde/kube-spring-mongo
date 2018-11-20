@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: spring-deployment
 spec:
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: spring-container
-        image: monicashinde3/spring-mongo:v1
+        image: monicashinde3/spring-mongo:v3
         ports:
         - name: spring-port
           containerPort: 5556
@@ -20,3 +20,5 @@ spec:
             value: mongo-service
           - name: MONGO_INITDB_DATABASE
             value: TodoApp
+      nodeSelector:
+        env: database

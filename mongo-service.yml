@@ -7,4 +7,6 @@ spec:
     app: mongo
   ports:
      - port: 27017
-  type: NodePort
+       Protocol: TCP
+       targetPort: 27017
+  type: ClusterIP
